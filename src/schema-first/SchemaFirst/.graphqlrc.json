@@ -3,6 +3,7 @@
   "documents": "**/*.graphql",
   "extensions": {
     "neo4j": {
+      "name": "MovieLibrary",
       "databaseName": "neo4j",
       "namespace": "Movies.SchemaFirst"
     }

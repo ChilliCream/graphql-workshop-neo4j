@@ -17,10 +17,7 @@ namespace SchemaFirst
                 // configure the schema
                 .AddGraphQLServer()
                 .AddQueryType()
-                    .AddType<Movies.SchemaFirst.Query>()
-                .AddFiltering()
-                .AddProjections()
-                .AddSorting();
+                .AddMovieLibraryTypes();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
