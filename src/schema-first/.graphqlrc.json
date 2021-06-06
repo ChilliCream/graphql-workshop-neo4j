@@ -5,7 +5,7 @@
     "neo4j": {
       "name": "MovieLibrary",
       "databaseName": "neo4j",
-      "namespace": "Movies.SchemaFirst"
+      "namespace": "SchemaFirst.Neo4J"
     }
   }
 }
