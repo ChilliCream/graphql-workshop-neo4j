@@ -6,9 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="HotChocolate.Analyzers" Version="12.0.0-preview.14" />
-    <PackageReference Include="HotChocolate.AspNetCore" Version="12.0.0-preview.14" />
-    <PackageReference Include="HotChocolate.Data.Neo4J" Version="12.0.0-preview.14" />
+    <PackageReference Include="HotChocolate.Analyzers" Version="12.0.0-preview.23" />
+    <PackageReference Include="HotChocolate.AspNetCore" Version="12.0.0-preview.23" />
+    <PackageReference Include="HotChocolate.Data.Neo4J" Version="12.0.0-preview.23" />
+    <PackageReference Include="Neo4j.Driver" Version="4.3.1" />
   </ItemGroup>
 
   <!--This item group needs to be in the consuming project.-->
