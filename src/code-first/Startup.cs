@@ -16,12 +16,12 @@ namespace MoviesAPI
         public void ConfigureServices(IServiceCollection services)
         {
             IDriver driver = GraphDatabase.Driver(
-                "neo4j://localhost:7687", 
+                "bolt://localhost:7687", 
                 AuthTokens.Basic("neo4j", "test123"));
 
             services
                 .AddSingleton(driver)
-                .AddGraphQL()
+                .AddGraphQLServer()
                     .AddQueryType(q => q.Name("Query"))
                         .AddType<MovieQueries>()
                 .AddNeo4JFiltering()
