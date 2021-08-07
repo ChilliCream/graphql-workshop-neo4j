@@ -4,4 +4,9 @@
         <TargetFramework>net5.0</TargetFramework>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="HotChocolate.AspNetCore" Version="12.0.0-preview.28" />
+      <PackageReference Include="HotChocolate.Data.Neo4J" Version="12.0.0-preview.28" />
+    </ItemGroup>
+
 </Project>

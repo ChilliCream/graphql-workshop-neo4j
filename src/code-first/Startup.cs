@@ -1,12 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using HotChocolate.Data.Neo4J;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MoviesAPI.Schema;
+using Neo4j.Driver;
 
 namespace MoviesAPI
 {
@@ -16,6 +15,18 @@ namespace MoviesAPI
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            IDriver driver = GraphDatabase.Driver(
+                "bolt://localhost:7687", 
+                AuthTokens.Basic("neo4j", "test123"));
+
+            services
+                .AddSingleton(driver)
+                .AddGraphQLServer()
+                    .AddQueryType(q => q.Name("Query"))
+                        .AddType<MovieQueries>()
+                .AddNeo4JFiltering()
+                .AddNeo4JSorting()
+                .AddNeo4JProjections();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -31,6 +42,7 @@ namespace MoviesAPI
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapGet("/", async context => { await context.Response.WriteAsync("Hello World!"); });
+                endpoints.MapGraphQL();
             });
         }
     }
